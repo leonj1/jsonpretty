@@ -12,7 +12,8 @@ import mySaga from './sagas/createPrettyJson';
 
 const initialState = {
 	contents: "",
-	pretty: ""
+	pretty: "",
+    height: "700px"
 }
 
 // reducers

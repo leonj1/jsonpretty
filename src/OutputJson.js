@@ -13,9 +13,8 @@ class OutputJson extends Component {
                   >
                     <ControlLabel>Pretty JSON</ControlLabel>
                     <FormControl
-                      style={{height: '150px'}}
+                      style={{height: this.props.height}}
                       componentClass="textarea"
-                      height="100"
                       value={this.props.pretty}
                       placeholder="JSON Formatted Text here"
                     />
@@ -27,7 +26,8 @@ class OutputJson extends Component {
 }
 
 OutputJson.propTypes = {
-	pretty: PropTypes.string
+	pretty: PropTypes.string,
+    height: PropTypes.string
 }
 
 export default OutputJson;

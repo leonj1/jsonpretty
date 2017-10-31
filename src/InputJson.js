@@ -6,10 +6,14 @@ class InputJson extends Component {
 	constructor(props){
 		super(props);
         this.state = {
-			contents: ""
+			contents: "{ \"person\": \"me\", \"likes\": [\"pizza\", \"fries\"] }"
 		}
         this.inputChangeHandler = this.inputChangeHandler.bind(this);
 	}
+
+    componentDidMount() {
+       this.props.onJsonInput && this.props.onJsonInput({ contents: this.state.contents });
+    }
 
 	render() {
 		return (
@@ -20,9 +24,8 @@ class InputJson extends Component {
                   >
                     <ControlLabel>Input JSON</ControlLabel>
                     <FormControl
-                      style={{height: '150px'}}
+                      style={{height: this.props.height}}
                       componentClass="textarea"
-                      height="100"
                       value={this.state.contents}
                       placeholder="Enter text"
                       onChange={this.inputChangeHandler}
@@ -42,7 +45,8 @@ class InputJson extends Component {
 }
 
 InputJson.propTypes = {
-	onJsonInput: PropTypes.func
+	onJsonInput: PropTypes.func,
+    height: PropTypes.string
 }
 
 export default InputJson;
